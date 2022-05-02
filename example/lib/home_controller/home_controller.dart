@@ -2,7 +2,7 @@ import 'package:controllable_flutter/controllable_flutter.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-part 'home_controller.g.dart';
+part 'home_controller.x.dart';
 part 'home_event.dart';
 part 'home_state.dart';
 

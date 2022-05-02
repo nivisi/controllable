@@ -85,7 +85,7 @@ abstract class HomeEvent extends XEvent {
 ```dart
 /* imports */
 
-part 'home_controller.g.dart';
+part 'home_controller.x.dart';
 part 'home_event.dart';
 part 'home_state.dart';
 
@@ -260,8 +260,8 @@ Controllable generates code uniquely for your controllers so you can avoid writi
 [controllable-pub-version-img]: https://img.shields.io/badge/pub-v0.0.1+2-green
 [controllable-pub-version-url]: https://pub.dev/packages/controllable
 
-[controllable-flutter-pub-version-img]: https://img.shields.io/badge/pub-v0.0.1-green
+[controllable-flutter-pub-version-img]: https://img.shields.io/badge/pub-v0.0.1+1-green
 [controllable-flutter-pub-version-url]: https://pub.dev/packages/controllable_flutter
 
-[controllable-generator-pub-version-img]: https://img.shields.io/badge/pub-v0.0.1-green
+[controllable-generator-pub-version-img]: https://img.shields.io/badge/pub-v0.0.2-green
 [controllable-generator-pub-version-url]: https://pub.dev/packages/controllable_generator

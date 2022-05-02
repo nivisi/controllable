@@ -5,5 +5,5 @@ import 'src/generator/controllable_generator.dart';
 
 Builder controllableGenerator(BuilderOptions options) => PartBuilder(
       [ControllableGenerator()],
-      '.g.dart',
+      '.x.dart',
     );

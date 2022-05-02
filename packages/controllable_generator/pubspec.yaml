@@ -1,6 +1,6 @@
 name: controllable_generator
 description: A generator for the controllable and controllable_flutter packages that makes working with controllable easier.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/nivisi/controllable/tree/develop/packages/controllable_generator
 repository: https://github.com/nivisi/controllable/tree/develop/packages/controllable_generator
 

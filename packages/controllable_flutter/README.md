@@ -103,7 +103,7 @@ abstract class HomeEvent extends XEvent {
 ```dart
 /* imports */
 
-part 'home_controller.g.dart';
+part 'home_controller.x.dart';
 part 'home_event.dart';
 part 'home_state.dart';
 
