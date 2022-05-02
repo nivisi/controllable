@@ -244,7 +244,7 @@ On your UI level the interface of your controller has only three fields: `state`
 - `state` for reading/watching values and rendering the UI;
 - `raiseEvent` for triggering actions in the controller.
 
-## How is all works?
+## How it all works?
 
 It is all possible with the power of mixins and extensions.
 
