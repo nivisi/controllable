@@ -177,11 +177,11 @@ The `watch` statement will make the `BuildContext` used to access `watch` to reb
 return Column(
   children: [
     Builder(
-      // The name text will not get rebuilt when address changes
+      // This will be rebuilt only when name changes
       builder: (context) => Text(context.homeController.state.watch.name)
     ),
     Builder(
-      // The address text will not get rebuilt when name changes
+      // This will be rebuilt only when address changes
       builder: (context) => Text(context.homeController.state.watch.address)
     ),
     // This button will not get rebuilt when neither name or address changes
