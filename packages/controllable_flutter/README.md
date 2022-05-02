@@ -33,7 +33,6 @@ For more details, see below.
 
 ---
 
-https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#a-quick-overview
 ### Table of contents
 - [Example](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#example)
   - [Setup](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#setup)
