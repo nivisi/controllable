@@ -1,0 +1,9 @@
+name: controllable
+description: The core package for the controllable ecosystem that contains base classes and interfaces.
+version: 0.0.1
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dev_dependencies:
+  lints: ^1.0.0
+  meta: ^1.7.0

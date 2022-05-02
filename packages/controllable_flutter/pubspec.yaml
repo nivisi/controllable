@@ -1,0 +1,21 @@
+name: controllable_flutter
+description: The Flutter part of the controllable ecosystem that contains widgets to operate with the controllable on the UI level.
+version: 0.0.1
+homepage: null
+publish_to: none
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  controllable:
+    path: ../controllable
+  flutter:
+    sdk: flutter
+  provider: ^6.0.2
+
+dev_dependencies:
+  flutter_lints: ^1.0.0
+
+flutter: null
