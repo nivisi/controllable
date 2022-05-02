@@ -1,6 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
-import 'package:controllable_generator/src/annotations/controllable_annotations.dart';
+import 'package:controllable/controllable.dart';
 import 'package:source_gen/source_gen.dart';
 
 import 'helpers/generator_helpers.dart';
@@ -12,17 +12,9 @@ class ControllableGenerator extends GeneratorForAnnotation<XControllable> {
     ConstantReader annotation,
     BuildStep buildStep,
   ) async {
-    // final annotationClass =
-    //     (annotation.objectValue.type?.element as ClassElement);
-
+    // Hack to extract event type argument of the annotation
     final eventType =
         (annotation.objectValue.type as dynamic).typeArguments.first.element;
-
-    // annotation.objectValue.type.element
-
-    // element.visitChildren(visitor)
-
-    // annotation.objectValue.type.asInstanceOf()
 
     try {
       if (element is! ClassElement) {

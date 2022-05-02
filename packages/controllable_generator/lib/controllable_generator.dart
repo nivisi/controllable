@@ -5,5 +5,3 @@
 /// For more details visit [GitHub](https://github.com/nivisi/controllable/packages/controllable_generator)
 /// or [pub.dev](https://pub.dev/packages/controllable_generator).
 library controllable_generator;
-
-export 'src/annotations/controllable_annotations.dart';
