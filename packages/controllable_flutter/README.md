@@ -33,27 +33,28 @@ For more details, see below.
 
 ---
 
+https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#a-quick-overview
 ### Table of contents
-- [Example](https://github.com/nivisi/controllable#example)
-  - [Setup](https://github.com/nivisi/controllable#setup)
-    - [State](https://github.com/nivisi/controllable#state)
-    - [Event](https://github.com/nivisi/controllable#event)
-    - [Now you can declare your controller class](https://github.com/nivisi/controllable#now-you-can-declare-your-controller-class)
-    - [Run the build runner](https://github.com/nivisi/controllable#run-the-build-runner)
-  - [Usage](https://github.com/nivisi/controllable#usage)
-    - [Fill your controller](https://github.com/nivisi/controllable#fill-your-controller)
-    - [UI](https://github.com/nivisi/controllable#ui)
-    - [Listen for side effects](https://github.com/nivisi/controllable#listen-for-side-effect)
-- [How to](https://github.com/nivisi/controllable#how-to)
-  - [Emit new states](https://github.com/nivisi/controllable#emit-new-states)
-  - [Watch or read the state](https://github.com/nivisi/controllable#watch-or-read-the-state)
-  - [Raise events](https://github.com/nivisi/controllable#raise-events)
-  - [Fire side effects](https://github.com/nivisi/controllable#fire-side-effects)
-  - [Listen for side effects](https://github.com/nivisi/controllable#listen-for-side-effects)
-- [Best practices](https://github.com/nivisi/controllable#best-practices)
-  - [Use the generated interface](https://github.com/nivisi/controllable#use-the-generated-interface)
-- [How it all works?](https://github.com/nivisi/controllable#how-it-all-works)
-  - [Yes, code generation. But let me explain](https://github.com/nivisi/controllable#yes-code-generation-but-let-me-explain)
+- [Example](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#example)
+  - [Setup](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#setup)
+    - [State](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#state)
+    - [Event](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#event)
+    - [Now you can declare your controller class](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#now-you-can-declare-your-controller-class)
+    - [Run the build runner](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#run-the-build-runner)
+  - [Usage](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#usage)
+    - [Fill your controller](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#fill-your-controller)
+    - [UI](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#ui)
+    - [Listen for side effects](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#listen-for-side-effect)
+- [How to](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#how-to)
+  - [Emit new states](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#emit-new-states)
+  - [Watch or read the state](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#watch-or-read-the-state)
+  - [Raise events](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#raise-events)
+  - [Fire side effects](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#fire-side-effects)
+  - [Listen for side effects](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#listen-for-side-effects)
+- [Best practices](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#best-practices)
+  - [Use the generated interface](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#use-the-generated-interface)
+- [How it all works?](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#how-it-all-works)
+  - [Yes, code generation. But let me explain](https://github.com/nivisi/controllable/blob/develop/packages/controllable_flutter/README.md#yes-code-generation-but-let-me-explain)
 
 ## Example
 
