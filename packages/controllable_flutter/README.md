@@ -254,7 +254,7 @@ XListener(
 
 ## Best practices
 
-They are yet to determine! :) But the first on is:
+They are yet to determine! :) But the first one is:
 
 ### Use the generated interface
 
