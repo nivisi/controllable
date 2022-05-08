@@ -9,8 +9,7 @@ export 'package:controllable/controllable.dart';
 export 'package:flutter/foundation.dart'
     show nonVirtual, protected, mustCallSuper;
 export 'package:flutter/widgets.dart' show BuildContext;
-export 'package:provider/provider.dart'
-    show ReadContext, SelectContext, Provider;
+export 'package:provider/provider.dart' show ReadContext, SelectContext;
 
 export 'src/x_builder.dart';
 export 'src/x_listener.dart';
