@@ -62,7 +62,13 @@ class EventMethodsElementVisitor extends SimpleElementVisitor<void> {
     late final String call;
     late final String onCall;
 
-    final paramNames = element.parameters.map((e) => e.name);
+    final paramNames = element.parameters.map((e) {
+      final name = e.name;
+      if (e.isNamed) {
+        return '$name: $name';
+      }
+      return name;
+    });
     if (paramNames.isEmpty) {
       call = '$name();';
       onCall = '$onName();';
