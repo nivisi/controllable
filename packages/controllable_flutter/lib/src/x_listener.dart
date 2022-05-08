@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:controllable/controllable.dart';
+import 'package:controllable_flutter/src/helpers/x_listener_single_child_widget_mixin.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/single_child_widget.dart';
 
 // typedef _StreamableCreate<T> = T Function(BuildContext context);
 
@@ -14,32 +16,32 @@ typedef _EffectListenerCallback<
 
 /// Allows to listen for side effects fired by controllers.
 class XListener<TStreamable extends SideEffectStreamable<TEffect>, TEffect>
-    extends StatefulWidget {
+    extends SingleChildStatefulWidget with XListenerSingleChildWidgetMixin {
   final TStreamable streamable;
   final _EffectListenerCallback<TStreamable, TEffect> listener;
-  final Widget? child;
-  final WidgetBuilder? builder;
 
-  const XListener({
+  XListener({
     Key? key,
     required this.streamable,
     required this.listener,
-    this.child,
-    this.builder,
+    Widget? child,
+    WidgetBuilder? builder,
   })  : assert(
           ((child == null && builder == null) ||
                   child != null && builder == null) ||
               (child == null && builder != null),
           'Either a child or a builder must be provided, not both at the same time',
         ),
-        super(key: key);
+        super(
+            key: key,
+            child: builder != null ? Builder(builder: builder) : child);
 
   @override
   State<XListener> createState() => _XListenerState<TStreamable, TEffect>();
 }
 
 class _XListenerState<TStreamable extends SideEffectStreamable<TEffect>,
-    TEffect> extends State<XListener<TStreamable, TEffect>> {
+    TEffect> extends SingleChildState<XListener<TStreamable, TEffect>> {
   late StreamSubscription _streamSubscription;
 
   @override
@@ -78,7 +80,7 @@ class _XListenerState<TStreamable extends SideEffectStreamable<TEffect>,
   }
 
   @override
-  Widget build(BuildContext context) {
-    return widget.builder != null ? widget.builder!(context) : widget.child!;
+  Widget buildWithChild(BuildContext context, Widget? child) {
+    return child ?? const SizedBox();
   }
 }
