@@ -27,7 +27,8 @@ class XListener<TStreamable extends SideEffectStreamable<TEffect>, TEffect>
     this.child,
     this.builder,
   })  : assert(
-          (child != null && builder == null) ||
+          ((child == null && builder == null) ||
+                  child != null && builder == null) ||
               (child == null && builder != null),
           'Either a child or a builder must be provided, not both at the same time',
         ),

@@ -23,7 +23,8 @@ class XProvider<TController extends XController<TState, TEffect>,
     WidgetBuilder? builder,
     Widget? child,
   })  : assert(
-          (child != null && builder == null) ||
+          ((child == null && builder == null) ||
+                  child != null && builder == null) ||
               (child == null && builder != null),
           'Either a child or a builder must be provided, not both at the same time',
         ),
@@ -42,7 +43,8 @@ class XProvider<TController extends XController<TState, TEffect>,
     WidgetBuilder? builder,
     Widget? child,
   })  : assert(
-          (child != null && builder == null) ||
+          ((child == null && builder == null) ||
+                  child != null && builder == null) ||
               (child == null && builder != null),
           'Either a child or a builder must be provided, not both at the same time',
         ),
