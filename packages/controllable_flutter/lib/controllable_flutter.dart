@@ -13,4 +13,6 @@ export 'package:provider/provider.dart' show ReadContext, SelectContext;
 
 export 'src/x_builder.dart';
 export 'src/x_listener.dart';
+export 'src/x_multi_listener.dart';
+export 'src/x_multi_provider.dart';
 export 'src/x_provider.dart';
