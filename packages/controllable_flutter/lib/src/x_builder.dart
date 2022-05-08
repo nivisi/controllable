@@ -2,10 +2,6 @@ import 'package:controllable/controllable.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-typedef XSelector<TController, TValue> = TValue Function(
-  TController controller,
-);
-
 typedef _XBuilder<TValue> = Widget Function(
   BuildContext context,
   TValue value,

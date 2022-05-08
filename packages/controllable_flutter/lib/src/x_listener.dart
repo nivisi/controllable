@@ -17,14 +17,21 @@ class XListener<TStreamable extends SideEffectStreamable<TEffect>, TEffect>
     extends StatefulWidget {
   final TStreamable streamable;
   final _EffectListenerCallback<TStreamable, TEffect> listener;
-  final Widget child;
+  final Widget? child;
+  final WidgetBuilder? builder;
 
   const XListener({
     Key? key,
     required this.streamable,
     required this.listener,
-    required this.child,
-  }) : super(key: key);
+    this.child,
+    this.builder,
+  })  : assert(
+          (child != null && builder == null) ||
+              (child == null && builder != null),
+          'Either a child or a builder must be provided, not both at the same time',
+        ),
+        super(key: key);
 
   @override
   State<XListener> createState() => _XListenerState<TStreamable, TEffect>();
@@ -71,6 +78,6 @@ class _XListenerState<TStreamable extends SideEffectStreamable<TEffect>,
 
   @override
   Widget build(BuildContext context) {
-    return widget.child;
+    return widget.builder != null ? widget.builder!(context) : widget.child!;
   }
 }
