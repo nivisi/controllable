@@ -1,3 +1,7 @@
+## 0.0.3
+
+Introduce XMultiProvider and XMultiListener.
+
 ## 0.0.2+1
 
 Export BuildContext and foundation annotations to avoid adding them by hand in main controller files.
