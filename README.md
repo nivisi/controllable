@@ -263,5 +263,5 @@ Controllable generates code uniquely for your controllers so you can avoid writi
 [controllable-flutter-pub-version-img]: https://img.shields.io/badge/pub-v0.0.2+1-green
 [controllable-flutter-pub-version-url]: https://pub.dev/packages/controllable_flutter
 
-[controllable-generator-pub-version-img]: https://img.shields.io/badge/pub-v0.0.2-green
+[controllable-generator-pub-version-img]: https://img.shields.io/badge/pub-v0.0.3-green
 [controllable-generator-pub-version-url]: https://pub.dev/packages/controllable_generator
