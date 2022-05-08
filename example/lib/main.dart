@@ -34,17 +34,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return XProvider(
       create: (context) => HomeController(),
-      child: Builder(builder: (context) {
+      builder: (context) {
         return XListener(
           streamable: context.homeController,
           listener: (context, int effect) {
@@ -105,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         );
-      }),
+      },
     );
   }
 }
