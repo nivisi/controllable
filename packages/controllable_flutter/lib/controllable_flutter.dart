@@ -6,6 +6,9 @@
 library controllable_flutter;
 
 export 'package:controllable/controllable.dart';
+export 'package:flutter/foundation.dart'
+    show nonVirtual, protected, mustCallSuper;
+export 'package:flutter/widgets.dart' show BuildContext;
 export 'package:provider/provider.dart'
     show ReadContext, SelectContext, Provider;
 
