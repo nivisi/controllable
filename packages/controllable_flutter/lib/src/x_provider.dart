@@ -15,54 +15,42 @@ class XProvider<TController extends XController<TState, TEffect>,
   /// Whether to initialize the controller only after it is accessed for the first time (read/watched).
   final bool lazy;
 
-  const XProvider({
+  /// Use builder if you'd like to access your controller right after it was provided.
+  XProvider({
     Key? key,
     required _ControllableCreate<TController> create,
     this.lazy = true,
-    required Widget child,
-  })  : _streamableValue = null,
+    WidgetBuilder? builder,
+    Widget? child,
+  })  : assert(
+          (child != null && builder == null) ||
+              (child == null && builder != null),
+          'Either a child or a builder must be provided, not both at the same time',
+        ),
+        _streamableValue = null,
         _streamableCreator = create,
         super(
           key: key,
-          child: child,
+          child: builder != null ? Builder(builder: builder) : child,
         );
 
   /// Use builder if you'd like to access your controller right after it was provided.
-  XProvider.builder({
-    Key? key,
-    required _ControllableCreate<TController> create,
-    this.lazy = true,
-    required WidgetBuilder builder,
-  })  : _streamableValue = null,
-        _streamableCreator = create,
-        super(
-          key: key,
-          child: Builder(builder: builder),
-        );
-
   XProvider.value({
     Key? key,
     required TController value,
     this.lazy = true,
-    required Widget child,
-  })  : _streamableValue = value,
+    WidgetBuilder? builder,
+    Widget? child,
+  })  : assert(
+          (child != null && builder == null) ||
+              (child == null && builder != null),
+          'Either a child or a builder must be provided, not both at the same time',
+        ),
+        _streamableValue = value,
         _streamableCreator = null,
         super(
           key: key,
-          child: child,
-        );
-
-  /// Use builder if you'd like to access your controller right after it was provided.
-  XProvider.valueBuilder({
-    Key? key,
-    required TController value,
-    this.lazy = true,
-    required WidgetBuilder builder,
-  })  : _streamableValue = value,
-        _streamableCreator = null,
-        super(
-          key: key,
-          child: Builder(builder: builder),
+          child: builder != null ? Builder(builder: builder) : child,
         );
 
   VoidCallback _startListening(
