@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
         return XListener(
           streamable: context.homeController,
           listener: (context, int effect) {
-            print(effect);
+            print('Home: $effect');
           },
           child: Scaffold(
             appBar: AppBar(
@@ -72,13 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       );
                     },
                     child: const Text('Update Address'),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      _counter++;
-                      context.homeController.raiseEvent.updateCounter(_counter);
-                    },
-                    child: const Text('Update Counter'),
                   ),
                   Builder(
                     builder: (context) {

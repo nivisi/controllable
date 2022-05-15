@@ -9,10 +9,12 @@ part of 'home_controller.dart';
 /// Generated for [HomeController]
 mixin _$HomeController on XController<HomeState, int> {
   late final _$HomeControllerRaiseEvent raiseEvent;
+  late final _$Emitter emitWith;
 
   @override
   @mustCallSuper
   void init() {
+    emitWith = _$EmitterImpl(this);
     raiseEvent = _$HomeControllerRaiseEvent(this);
   }
 
@@ -28,20 +30,6 @@ mixin _$HomeController on XController<HomeState, int> {
     );
   }
 
-  @protected
-  @nonVirtual
-  void emitWith({
-    String? name,
-    String? address,
-  }) {
-    final newState = _HomeState(
-      name: name ?? state.name,
-      address: address ?? state.address,
-    );
-    // ignore: invalid_use_of_visible_for_testing_member
-    emit(newState);
-  }
-
   void onUpdateName(String newName) {
     throw UnimplementedError('updateName is not implemented yet.');
   }
@@ -52,6 +40,38 @@ mixin _$HomeController on XController<HomeState, int> {
 
   void onUpdateCounter(int counter) {
     throw UnimplementedError('updateCounter is not implemented yet.');
+  }
+}
+
+abstract class _$Emitter {
+  const _$Emitter();
+
+  void call({
+    String name,
+    String? address,
+  });
+}
+
+class _$EmitterImpl implements _$Emitter {
+  final _$HomeController _controller;
+
+  const _$EmitterImpl(
+    this._controller,
+  );
+
+  @override
+  void call({
+    Object? name = __unchanged,
+    Object? address = __unchanged,
+  }) {
+    final newState = _HomeState(
+      name: name == __unchanged ? _controller.state.name : name as String,
+      address: address == __unchanged
+          ? _controller.state.address
+          : address as String?,
+    );
+    // ignore: invalid_use_of_protected_member
+    _controller.emit(newState);
   }
 }
 
@@ -139,3 +159,6 @@ class _HomeControllerStateWatchBuildContext {
     this._context,
   );
 }
+
+/// Is used for tracking what field remained unchanged during emitting.
+const __unchanged = Object();
