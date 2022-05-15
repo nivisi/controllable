@@ -1,3 +1,22 @@
+## 0.0.4
+
+Allow to use `emitWith` with nulls. Previously, using a null meant «do not change this variable». Now, using a null actually means «use this null».
+
+```dart
+@override
+void onIncrementCounter() {
+    // state.counter == 10032000 now.
+    emitWith(counter: 10032000);
+
+    // Previously this would not change the value.
+    emitWith(counter: null);
+
+    // Now this line would not even compile if counter is not nullable!
+    // And if it is nullable, a new state with counter == null will be emitted.
+    emitWith(counter: null);
+}
+```
+
 ## 0.0.3
 
 Allow to use named parameters in events.
