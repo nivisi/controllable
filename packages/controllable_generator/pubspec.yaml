@@ -12,7 +12,7 @@ dependencies:
   analyzer: ^4.0.0
   build: ^2.3.0
   controllable: ^0.0.1+2
-  dart_code_writer: ^0.0.4
+  dart_code_writer: ^0.0.7
   glob: ^2.0.1
   source_gen: ^1.2.2
 

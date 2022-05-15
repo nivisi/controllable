@@ -35,30 +35,18 @@ class ControllerMixinGeneratorHelper {
         .late
         .final_;
 
-    final emitWithMethod =
-        DartCodeWriter.createMethod.withName('emitWith').protected.nonVirtual;
+    const emitterInterfaceName = '_\$Emitter';
+    const emitterImplClassName = '_\$EmitterImpl';
 
-    for (final en in stateVisitor.parameters.entries) {
-      final name = en.key;
-      final type = '${en.value.getDisplayString(withNullability: false)}?';
-
-      emitWithMethod.withNamedParameter(name: name, type: type);
-    }
-
-    final settterLines = stateVisitor.parameters.entries
-        .map((e) => '${e.key}: ${e.key} ?? state.${e.key},');
-
-    emitWithMethod
-        .line('final newState = _$stateName(')
-        .lines(settterLines)
-        .line(');')
-        .line('// ignore: invalid_use_of_visible_for_testing_member')
-        .line('emit(newState);');
+    final emitWithField = DartCodeWriter.createField.late.final_
+        .withName('emitWith')
+        .withType(emitterInterfaceName);
 
     final initMethod = DartCodeWriter.createMethod
         .withName('init')
         .overriding
         .mustCallSuper
+        .line('emitWith = $emitterImplClassName(this);')
         .line('raiseEvent = $raiseEventName(this);');
 
     final createStateParameters =
@@ -83,9 +71,9 @@ class ControllerMixinGeneratorHelper {
         .withName('_\$$controllerName')
         .on(controllerMixinOn)
         .withField(raiseEventField)
+        .withField(emitWithField)
         .withMethod(initMethod)
-        .withMethod(createStateMethod)
-        .withMethod(emitWithMethod);
+        .withMethod(createStateMethod);
 
     for (final eventMethod in eventMethodsElementVisitor.eventMethods) {
       final method = DartCodeWriter.createMethod
