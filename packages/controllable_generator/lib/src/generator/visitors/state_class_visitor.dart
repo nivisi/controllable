@@ -9,12 +9,6 @@ class StateClassVisitor extends SimpleElementVisitor<void> {
 
   @override
   void visitPropertyAccessorElement(PropertyAccessorElement element) {
-    // final getter = element.correspondingGetter;
-
-    // if (getter == null) {
-    //   return;
-    // }
-
     parameters[element.name] = element.returnType;
   }
 

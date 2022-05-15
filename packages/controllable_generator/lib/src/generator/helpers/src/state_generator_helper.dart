@@ -14,7 +14,6 @@ class StateGeneratorHelper {
 
     stateType.element!.visitChildren(stateVisitor);
 
-    // final stateName = stateVisitor.stateName;
     final generatedStateName = stateVisitor.generatedName;
 
     final fields = stateVisitor.parameters.entries.map(
@@ -35,21 +34,5 @@ class StateGeneratorHelper {
     }
 
     stateClass.writeTo(buffer);
-
-    // buffer.writeln();
-    // buffer.writeln();
-
-    // final stateMixin = DartCodeWriter.createMixin.withName('_\$$stateName');
-
-    // for (final en in stateVisitor.parameters.entries) {
-    //   final getter = DartCodeWriter.createGetter
-    //       .withName(en.key)
-    //       .withType(en.value.getDisplayString(withNullability: true))
-    //       .returns('throw \'Incorrect\';');
-
-    //   stateMixin.withGetter(getter);
-    // }
-
-    // stateMixin.writeTo(buffer);
   }
 }
