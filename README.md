@@ -6,15 +6,44 @@ Home repository for the controllable ecosystem.
 
 ---
 
-| Package                 | pub.dev |
-| ----------------------- | ------- |
-| controllable            | [![controllable pub version][controllable-pub-version-img]][controllable-pub-version-url] |
-| controllable_flutter    | [![controllable flutter pub version][controllable-flutter-pub-version-img]][controllable-flutter-pub-version-url] |
-| controllable_generator  | [![controllable generator pub version][controllable-generator-pub-version-img]][controllable-generator-pub-version-url] |
+| Package | pub.dev |
+| ------- | ------- |
+| [controllable](https://github.com/nivisi/controllable/tree/develop/packages/controllable) | [![controllable pub version][controllable-pub-version-img]][controllable-pub-version-url] |
+| [controllable_flutter](https://github.com/nivisi/controllable/tree/develop/packages/controllable_flutter) | [![controllable flutter pub version][controllable-flutter-pub-version-img]][controllable-flutter-pub-version-url] |
+| [controllable_generator](https://github.com/nivisi/controllable/tree/develop/packages/controllable_generator) | [![controllable generator pub version][controllable-generator-pub-version-img]][controllable-generator-pub-version-url] |
 
 ## Hello, world
 
 Controllable is an easy and convenient way of managing your state and setting your business logic apart from the UI level.
+
+#### Read your state
+
+```dart
+Text(context.myController.state.name);
+```
+
+#### Watch your state
+
+```dart
+Text(context.myController.state.watch.name);
+```
+
+#### Raise an event
+
+```dart
+TextButton(
+  onPressed: () => context.myController.raiseEvent.updateName('New name'),
+  child: Text('Raise update name event'),
+);
+```
+
+#### And more
+
+For more details, see below.
+
+---
+
+### Table of contents
 
 - [Example](https://github.com/nivisi/controllable#example)
   - [Setup](https://github.com/nivisi/controllable#setup)
