@@ -4,7 +4,7 @@ Controllable is an easy and convenient way of managing your state and setting yo
 
 ⚠️  _This is an alpha version that is not production ready. The documentation is not finished and will be extended and updated later on._
 
-### A quick overview:
+### Quick overview:
 
 #### Read your state
 
