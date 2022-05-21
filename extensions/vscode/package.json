@@ -1,0 +1,91 @@
+{
+  "name": "controllable-vscode-extensions",
+  "displayName": "controllable",
+  "description": "A set of commands to create controllable modules with ease",
+  "version": "0.0.1",
+  "publisher": "nivisi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nivisi/controllable"
+  },
+  "bugs": {
+    "url": "https://github.com/nivisi/controllable/labels/vscode_extension"
+  },
+  "engines": {
+    "vscode": "^1.67.0"
+  },
+  "keywords": [
+    "flutter",
+    "dart",
+    "state management",
+    "state",
+    "controllable",
+    "controller",
+    "module"
+  ],
+  "categories": [
+    "Snippets",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onCommand:controllable-vscode-extensions.createModule",
+    "onCommand:controllable-vscode-extensions.createController"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "controllable-vscode-extensions.createModule",
+        "title": "Controllable: Module",
+        "category": "Controllable"
+      },
+      {
+        "command": "controllable-vscode-extensions.createController",
+        "title": "Controllable: Controller",
+        "category": "Controllable"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "controllable-vscode-extensions.createModule",
+          "group": "controllable@1"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "controllable-vscode-extensions.createController",
+          "group": "controllable@2"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/lodash": "^4.14.182",
+    "@types/mkdirp": "^1.0.2",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "14.x",
+    "@types/vscode": "^1.67.0",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "@vscode/test-electron": "^2.1.3",
+    "eslint": "^8.14.0",
+    "glob": "^8.0.1",
+    "mocha": "^9.2.2",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "change-case": "^4.1.2",
+    "lodash": "^4.17.21",
+    "mkdirp": "^1.0.4"
+  }
+}
