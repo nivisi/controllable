@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.3
+
+Fix dependencies error.
+
 ## 0.0.2
 
 Fix dependencies error and reconfigure extension a bit.

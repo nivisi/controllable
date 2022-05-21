@@ -2,7 +2,7 @@
   "name": "controllable-vscode-extensions",
   "displayName": "controllable",
   "description": "A set of commands to create controllable modules with ease",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "nivisi",
   "repository": {
     "type": "git",
