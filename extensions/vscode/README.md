@@ -1,6 +1,6 @@
 # controllable
 
-A set of commands to create controllable modules with ease.
+A set of commands to create [controllable](https://github.com/nivisi/controllable) modules with ease.
 
 ### 💡 Pro tip
 
