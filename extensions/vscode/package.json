@@ -2,7 +2,7 @@
   "name": "controllable-vscode-extensions",
   "displayName": "controllable",
   "description": "A set of commands to create controllable modules with ease",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "nivisi",
   "repository": {
     "type": "git",
@@ -28,20 +28,20 @@
     "Programming Languages"
   ],
   "activationEvents": [
-    "onCommand:controllable-vscode-extensions.createModule",
-    "onCommand:controllable-vscode-extensions.createController"
+    "onCommand:extension.createModule",
+    "onCommand:extension.createController"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "controllable-vscode-extensions.createModule",
-        "title": "Controllable: Module",
+        "command": "extension.createModule",
+        "title": "Create module",
         "category": "Controllable"
       },
       {
-        "command": "controllable-vscode-extensions.createController",
-        "title": "Controllable: Controller",
+        "command": "extension.createController",
+        "title": "Create controller",
         "category": "Controllable"
       }
     ],
@@ -49,12 +49,12 @@
       "explorer/context": [
         {
           "when": "explorerResourceIsFolder",
-          "command": "controllable-vscode-extensions.createModule",
+          "command": "extension.createModule",
           "group": "controllable@1"
         },
         {
           "when": "explorerResourceIsFolder",
-          "command": "controllable-vscode-extensions.createController",
+          "command": "extension.createController",
           "group": "controllable@2"
         }
       ]

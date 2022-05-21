@@ -5,8 +5,8 @@ import * as xmodule from "./commands/create_module";
 
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
-		vscode.commands.registerCommand("controllable-vscode-extensions.createModule", xmodule.createModule),
-		vscode.commands.registerCommand("controllable-vscode-extensions.createController", xcontroller.createController),
+		vscode.commands.registerCommand("extension.createModule", xmodule.createModule),
+		vscode.commands.registerCommand("extension.createController", xcontroller.createController),
 	)
 }
 
