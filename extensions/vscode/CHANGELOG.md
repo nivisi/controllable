@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.0.5
+
+Fix dependencies error.
+
 ## 0.0.4
 
 Fix dependencies error.
