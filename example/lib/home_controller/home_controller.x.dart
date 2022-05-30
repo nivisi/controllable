@@ -8,12 +8,19 @@ part of 'home_controller.dart';
 
 /// Generated for [HomeController]
 mixin _$HomeController on XController<HomeState, int> {
+  bool _isInitialized = false;
   late final _$HomeControllerRaiseEvent raiseEvent;
   late final _$Emitter emitWith;
 
   @override
   @mustCallSuper
-  void init() {
+  void onProvided() {
+    if (_isInitialized) {
+      return;
+    }
+
+    _isInitialized = true;
+
     emitWith = _$EmitterImpl(this);
     raiseEvent = _$HomeControllerRaiseEvent(this);
   }
