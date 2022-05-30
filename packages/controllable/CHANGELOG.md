@@ -1,3 +1,7 @@
+## 0.0.2
+
+__BREAKING:__ `init` method renamed to `onProvided`.
+
 ## 0.0.1+2
 
 Update the readme.

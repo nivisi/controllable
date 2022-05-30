@@ -5,5 +5,5 @@ The core part of the [controllable ecosystem](https://github.com/nivisi/controll
 _More info to come soon ..._
 
 <!-- References -->
-[pub-version-img]: https://img.shields.io/badge/pub-v0.0.1+2-green
+[pub-version-img]: https://img.shields.io/badge/pub-v0.0.2-green
 [pub-version-url]: https://pub.dev/packages/controllable
