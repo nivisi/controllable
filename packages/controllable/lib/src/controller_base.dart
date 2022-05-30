@@ -112,7 +112,12 @@ abstract class XController<TState extends XState, TEffect>
   }
 
   @override
+  @mustCallSuper
   Future<void> dispose() async {
+    if (isDisposed) {
+      return;
+    }
+
     _stateStreamController.close();
     _effectStreamController.close();
   }
