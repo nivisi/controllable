@@ -60,7 +60,7 @@ class XProvider<TController extends XController<TState, TEffect>,
     InheritedContext<TController?> element,
     TController controller,
   ) {
-    controller.init();
+    controller.onProvided();
 
     final stateSubscription = controller.stateStream.listen(
       (dynamic _) => element.markNeedsNotifyDependents(),
@@ -86,14 +86,14 @@ class XProvider<TController extends XController<TState, TEffect>,
           )
         : InheritedProvider<TController>(
             create: _streamableCreator,
-            dispose: (_, controller) => controller.dispose(),
             startListening: (element, controller) => _startListening(
               context,
               element,
               controller,
             ),
-            child: child,
+            dispose: (_, controller) => controller.dispose(),
             lazy: lazy,
+            child: child,
           );
   }
 }
