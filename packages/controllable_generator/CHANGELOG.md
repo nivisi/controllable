@@ -1,3 +1,7 @@
+## 0.0.5
+
+`onProvided` is now called only once when the controller is provided for the very first time.
+
 ## 0.0.4
 
 Allow to use `emitWith` with nulls. Previously, using a null meant «do not change this variable». Now, using a null actually means «use this null».
