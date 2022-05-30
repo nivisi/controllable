@@ -52,12 +52,27 @@ abstract class XController<TState extends XState, TEffect>
   @nonVirtual
   bool get isDisposed => _stateStreamController.isClosed;
 
-  /// A method that is called after the controller is initialized.
+  /// Called after the controller was provided to the tree for the first time.
   ///
-  /// Don't put too heavy logic in-here: maybe launch an initialization future
-  /// or do lightweight calculations.
+  /// final controller = MyController();
+  ///
+  /// ```dart
+  /// XProvider(
+  ///   create: (context) => controller, // onProvided is called.
+  ///   child: XProvider.value(
+  ///     value: controller, // onProvided is not called.
+  ///     child: MyChild(),
+  ///   ),
+  /// )
+  /// ```
+  ///
+  /// Use this as a callback to initialize the controller.
+  /// You can launch a future to fetch initial data, emit a new state etc.
+  ///
+  /// But don't put too heavy synchronous logic in-here. This will freeze the app.
+  /// Launching a future or doing lightweight calculations will work.
   @mustCallSuper
-  void init() {}
+  void onProvided() {}
 
   /// Emits a new state of this controller.
   @protected
