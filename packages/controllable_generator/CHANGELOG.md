@@ -1,3 +1,7 @@
+## 0.0.7
+
+Call `onProvided` in the generated mixin.
+
 ## 0.0.6
 
 Don't generate `isInitilized` property (revert of 0.0.5) but use `isProvided` property of the core package instead.
