@@ -16,6 +16,8 @@ abstract class XController<TState extends XState, TEffect>
   final _stateStreamController = StreamController<TState>.broadcast();
   final _effectStreamController = StreamController<TEffect>.broadcast();
 
+  bool _isProvided = false;
+
   @override
   Stream<TEffect> get effectStream => _effectStreamController.stream;
 
@@ -52,6 +54,10 @@ abstract class XController<TState extends XState, TEffect>
   @nonVirtual
   bool get isDisposed => _stateStreamController.isClosed;
 
+  /// Whether the controller has been provided.
+  @nonVirtual
+  bool get isProvided => _isProvided;
+
   /// Called after the controller was provided to the tree for the first time.
   ///
   /// final controller = MyController();
@@ -72,7 +78,9 @@ abstract class XController<TState extends XState, TEffect>
   /// But don't put too heavy synchronous logic in-here. This will freeze the app.
   /// Launching a future or doing lightweight calculations will work.
   @mustCallSuper
-  void onProvided() {}
+  void onProvided() {
+    _isProvided = true;
+  }
 
   /// Emits a new state of this controller.
   @protected
