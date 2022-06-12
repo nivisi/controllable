@@ -46,6 +46,8 @@ class ControllerMixinGeneratorHelper {
         .withName('onProvided')
         .overriding
         .mustCallSuper
+        .line('super.onProvided();')
+        .line('')
         .line('emitWith = $emitterImplClassName(this);')
         .line('raiseEvent = $raiseEventName(this);');
 
