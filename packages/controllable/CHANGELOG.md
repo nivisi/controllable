@@ -1,3 +1,7 @@
+## 0.0.3
+
+Added `isProvided` getter to check whether a controller was already provided.
+
 ## 0.0.2
 
 __BREAKING:__ `init` method renamed to `onProvided`.
