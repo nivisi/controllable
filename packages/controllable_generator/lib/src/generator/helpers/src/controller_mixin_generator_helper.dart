@@ -29,12 +29,6 @@ class ControllerMixinGeneratorHelper {
     final eventMethodsElementVisitor = EventMethodsElementVisitor();
     eventType.visitChildren(eventMethodsElementVisitor);
 
-    final isInitializedField = DartCodeWriter.createField
-        .withName('isInitialized')
-        .withType('bool')
-        .defaultValue('false')
-        .private;
-
     final raiseEventField = DartCodeWriter.createField
         .withName('raiseEvent')
         .withType(raiseEventName)
@@ -52,19 +46,8 @@ class ControllerMixinGeneratorHelper {
         .withName('onProvided')
         .overriding
         .mustCallSuper
-        .lines(
-      [
-        'if (_isInitialized) {',
-        '  return;',
-        '}',
-        '',
-        '',
-        '_isInitialized = true;',
-        '',
-        'emitWith = $emitterImplClassName(this);'
-            'raiseEvent = $raiseEventName(this);',
-      ],
-    );
+        .line('emitWith = $emitterImplClassName(this);')
+        .line('raiseEvent = $raiseEventName(this);');
 
     final createStateParameters =
         stateVisitor.parameters.entries.map((e) => '${e.key}: ${e.key},');
@@ -89,7 +72,6 @@ class ControllerMixinGeneratorHelper {
         .on(controllerMixinOn)
         .withField(raiseEventField)
         .withField(emitWithField)
-        .withField(isInitializedField)
         .withMethod(onProvidedMethod)
         .withMethod(createStateMethod);
 

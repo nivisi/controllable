@@ -1,3 +1,7 @@
+## 0.0.6
+
+Don't generate `isInitilized` property (revert of 0.0.5) but use `isProvided` property of the core package instead.
+
 ## 0.0.5
 
 `onProvided` is now called only once when the controller is provided for the very first time.
