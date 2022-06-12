@@ -60,7 +60,9 @@ class XProvider<TController extends XController<TState, TEffect>,
     InheritedContext<TController?> element,
     TController controller,
   ) {
-    controller.onProvided();
+    if (!controller.isProvided) {
+      controller.onProvided();
+    }
 
     final stateSubscription = controller.stateStream.listen(
       (dynamic _) => element.markNeedsNotifyDependents(),

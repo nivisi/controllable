@@ -1,3 +1,7 @@
+## 0.0.4
+
+Checks if a controller was already provided before calling `onProvided`.
+
 ## 0.0.3+1
 
 Use controllable 0.0.2
