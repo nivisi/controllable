@@ -1,10 +1,19 @@
 # controllable_flutter [![pub version][pub-version-img]][pub-version-url]
 
-Controllable is an easy and convenient way of managing your state and setting your business logic apart from the UI level.
+Easy and convenient state management. Set your business logic apart from the UI level.
 
-⚠️  _This is an alpha version that is not production ready. The documentation is not finished and will be extended and updated later on._
+⚠️ _This is an alpha version. The documentation is not finished and will be extended and updated later on._
 
-### Quick overview:
+## Quick overview
+
+#### Emit updates for your state
+
+```dart
+@override
+void onUpdateName(String newName) {
+  emitWith(name: newName);
+}
+```
 
 #### Read your state
 
@@ -12,13 +21,13 @@ Controllable is an easy and convenient way of managing your state and setting yo
 Text(context.myController.state.name);
 ```
 
-#### Watch your state
+#### Watch for your state changes
 
 ```dart
 Text(context.myController.state.watch.name);
 ```
 
-#### Raise an event
+#### Raise events
 
 ```dart
 TextButton(
@@ -189,17 +198,19 @@ return Column(
 );
 ```
 
-The `watch` statement will make the `BuildContext` used to access `watch` to rebuild whenever the corresponding field changes. So, in the example above, whenever you do `emitWith(name: any);` or `emitWith(address: any);` the tree will get rebuilt. But we want to avoid unnecesseary rebuilds, right? Move the texts to separate widgets then! Or wrap them with builders:
+The `watch` statement will make the widget of the given `BuildContext` to rebuild whenever the corresponding field changes. So, in the example above, whenever you do either `emitWith(name: any);` or `emitWith(address: any);`, the tree will get rebuilt. But we want to avoid unnecesseary rebuilds, right? Move the texts to separate widgets then! Or wrap them with builders:
 
 ```dart
 return Column(
   children: [
     Builder(
-      // This will be rebuilt only when name changes
+      // This will be rebuilt only when name changes 
+      // Because this `context` now is only related to this part of the tree!
       builder: (context) => Text(context.homeController.state.watch.name)
     ),
     Builder(
       // This will be rebuilt only when address changes
+      // Because this `context` now is only related to this part of the tree!
       builder: (context) => Text(context.homeController.state.watch.address)
     ),
     // This button will not get rebuilt when neither name or address changes
@@ -258,7 +269,7 @@ They are yet to determine! :) But the first one is:
 
 ### Use the generated interface
 
-Access the state and the events only via the context.controller.state / context.controller.raiseEvent. Still, you can get your controller via the `Provider`'s `context.read<YourController>()` or other methods. But it is recommended to use only the build context extensions for that.
+Access the state and the events only via the `context.controller.state` / `context.controller.raiseEvent`. Still, you can get your controller via the `Provider`'s `context.read<YourController>()` or other methods. But it is recommended to use only the `BuildContext` extensions for that.
 
 On your UI level the interface of your controller has only three fields: `state`, `raiseEvent` and `effectSteam`. Though the latter is only for `XListener` widgets. So use:
 - `state` for reading/watching values and rendering the UI;
