@@ -2,6 +2,8 @@
 
 Home repository for the controllable ecosystem.
 
+Easy and convenient state management. Set your business logic apart from the UI level.
+
 ⚠️ _This is an alpha version. The documentation is not finished and will be extended and updated later on._
 
 ---
@@ -12,9 +14,16 @@ Home repository for the controllable ecosystem.
 | [controllable_flutter](https://github.com/nivisi/controllable/tree/develop/packages/controllable_flutter) | [![controllable flutter pub version][controllable-flutter-pub-version-img]][controllable-flutter-pub-version-url] |
 | [controllable_generator](https://github.com/nivisi/controllable/tree/develop/packages/controllable_generator) | [![controllable generator pub version][controllable-generator-pub-version-img]][controllable-generator-pub-version-url] |
 
-## Hello, world
+### Quick overview
 
-Controllable is an easy and convenient way of managing your state and setting your business logic apart from the UI level.
+#### Emit updates for your state
+
+```dart
+@override
+void onUpdateName(String newName) {
+  emitWith(name: newName);
+}
+```
 
 #### Read your state
 
@@ -22,13 +31,13 @@ Controllable is an easy and convenient way of managing your state and setting yo
 Text(context.myController.state.name);
 ```
 
-#### Watch your state
+#### Watch for your state changes
 
 ```dart
 Text(context.myController.state.watch.name);
 ```
 
-#### Raise an event
+#### Raise events
 
 ```dart
 TextButton(
