@@ -286,5 +286,5 @@ _TODO: Describe it._
 Controllable generates code uniquely for your controllers so you can avoid writing boilerplate code. Also, it creates an interface for public methods that the UI should use and state fields that the UI should render.
 
 <!-- References -->
-[pub-version-img]: https://img.shields.io/badge/pub-v0.0.4-green
+[pub-version-img]: https://img.shields.io/badge/pub-v0.0.4-0175c2?logo=flutter
 [pub-version-url]: https://pub.dev/packages/controllable_flutter
