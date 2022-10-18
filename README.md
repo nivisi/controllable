@@ -63,7 +63,6 @@ For more details, see below.
   - [Usage](#usage)
     - [Fill your controller](#fill-your-controller)
     - [UI](#ui)
-    - [Listen for side effects](#listen-for-side-effect)
 - [How to](#how-to)
   - [Emit new states](#emit-new-states)
   - [Watch or read the state](#watch-or-read-the-state)
