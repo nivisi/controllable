@@ -66,7 +66,7 @@ For more details, see below.
 - [How to](#how-to)
   - [Emit new states](#emit-new-states)
   - [Watch or read the state](#watch-or-read-the-state)
-  - [Raise events](#raise-events)
+  - [Raise events](#raise-events-1)
   - [Fire side effects](#fire-side-effects)
   - [Listen for side effects](#listen-for-side-effects)
 - [Best practices](#best-practices)
