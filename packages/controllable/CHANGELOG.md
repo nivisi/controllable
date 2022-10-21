@@ -1,3 +1,9 @@
+## 0.0.4
+
+- __BREAKING:__ side effect no longer has type specified;
+- Migrated to use [interfaces library](https://pub.dev/packages/interfaces).
+
+
 ## 0.0.3
 
 Added `isProvided` getter to check whether a controller was already provided.
