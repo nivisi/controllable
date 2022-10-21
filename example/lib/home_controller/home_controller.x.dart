@@ -7,19 +7,14 @@ part of 'home_controller.dart';
 // **************************************************************************
 
 /// Generated for [HomeController]
-mixin _$HomeController on XController<HomeState, int> {
-  bool _isInitialized = false;
+mixin _$HomeController on XController<HomeState> {
   late final _$HomeControllerRaiseEvent raiseEvent;
   late final _$Emitter emitWith;
 
   @override
   @mustCallSuper
   void onProvided() {
-    if (_isInitialized) {
-      return;
-    }
-
-    _isInitialized = true;
+    super.onProvided();
 
     emitWith = _$EmitterImpl(this);
     raiseEvent = _$HomeControllerRaiseEvent(this);
@@ -126,14 +121,14 @@ extension HomeControllerBuildContextExtensions on BuildContext {
   }
 }
 
-class _HomeControllerBuildContext implements SideEffectStreamable<int> {
+class _HomeControllerBuildContext implements SideEffectStreamable {
   final HomeController _controller;
   final _HomeControllerStateBuildContext _state;
 
   _$HomeControllerRaiseEvent get raiseEvent => _controller.raiseEvent;
   _HomeControllerStateBuildContext get state => _state;
   @override
-  Stream<int> get effectStream => _controller.effectStream;
+  Stream get effectStream => _controller.effectStream;
 
   _HomeControllerBuildContext(
     this._controller,

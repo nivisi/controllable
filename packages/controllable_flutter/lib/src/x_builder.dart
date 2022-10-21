@@ -8,8 +8,8 @@ typedef _XBuilder<TValue> = Widget Function(
 );
 
 /// A builder that can be used if a widget must be rebuilt every time a new state is emitted.
-class XBuilder<TController extends XController<TState, TEffect>,
-    TState extends XState, TEffect> extends StatelessWidget {
+class XBuilder<TController extends XController<TState>, TState extends XState>
+    extends StatelessWidget {
   const XBuilder({
     Key? key,
     required this.builder,

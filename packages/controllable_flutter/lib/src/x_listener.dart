@@ -7,18 +7,17 @@ import 'package:provider/single_child_widget.dart';
 
 // typedef _StreamableCreate<T> = T Function(BuildContext context);
 
-typedef _EffectListenerCallback<
-        TStreamable extends SideEffectStreamable<TEffect>, TEffect>
-    = void Function(
+typedef _EffectListenerCallback<TStreamable extends SideEffectStreamable> = void
+    Function(
   BuildContext context,
-  TEffect effect,
+  dynamic effect,
 );
 
 /// Allows to listen for side effects fired by controllers.
-class XListener<TStreamable extends SideEffectStreamable<TEffect>, TEffect>
+class XListener<TStreamable extends SideEffectStreamable>
     extends SingleChildStatefulWidget with XListenerSingleChildWidgetMixin {
   final TStreamable streamable;
-  final _EffectListenerCallback<TStreamable, TEffect> listener;
+  final _EffectListenerCallback<TStreamable> listener;
 
   XListener({
     Key? key,
@@ -37,11 +36,11 @@ class XListener<TStreamable extends SideEffectStreamable<TEffect>, TEffect>
             child: builder != null ? Builder(builder: builder) : child);
 
   @override
-  State<XListener> createState() => _XListenerState<TStreamable, TEffect>();
+  State<XListener> createState() => _XListenerState<TStreamable>();
 }
 
-class _XListenerState<TStreamable extends SideEffectStreamable<TEffect>,
-    TEffect> extends SingleChildState<XListener<TStreamable, TEffect>> {
+class _XListenerState<TStreamable extends SideEffectStreamable>
+    extends SingleChildState<XListener<TStreamable>> {
   late StreamSubscription _streamSubscription;
 
   @override
@@ -51,7 +50,7 @@ class _XListenerState<TStreamable extends SideEffectStreamable<TEffect>,
     _streamSubscription = widget.streamable.effectStream.listen(_onEvent);
   }
 
-  void _updateStreamable(covariant XListener<TStreamable, TEffect> oldWidget) {
+  void _updateStreamable(covariant XListener<TStreamable> oldWidget) {
     if (oldWidget.streamable != widget.streamable) {
       _streamSubscription.cancel();
       _streamSubscription = widget.streamable.effectStream.listen(_onEvent);
@@ -59,12 +58,12 @@ class _XListenerState<TStreamable extends SideEffectStreamable<TEffect>,
   }
 
   @override
-  void didUpdateWidget(covariant XListener<TStreamable, TEffect> oldWidget) {
+  void didUpdateWidget(covariant XListener<TStreamable> oldWidget) {
     super.didUpdateWidget(oldWidget);
     _updateStreamable(oldWidget);
   }
 
-  void _onEvent(TEffect effect) {
+  void _onEvent(dynamic effect) {
     if (!mounted) {
       return;
     }
@@ -74,9 +73,9 @@ class _XListenerState<TStreamable extends SideEffectStreamable<TEffect>,
 
   @override
   void dispose() {
-    super.dispose();
-
     _streamSubscription.cancel();
+
+    super.dispose();
   }
 
   @override

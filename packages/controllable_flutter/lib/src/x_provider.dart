@@ -6,9 +6,8 @@ import 'package:provider/single_child_widget.dart';
 
 typedef _ControllableCreate<T> = T Function(BuildContext context);
 
-class XProvider<TController extends XController<TState, TEffect>,
-        TState extends XState, TEffect> extends SingleChildStatelessWidget
-    with XProviderSingleChildWidgetMixin {
+class XProvider<TController extends XController<TState>, TState extends XState>
+    extends SingleChildStatelessWidget with XProviderSingleChildWidgetMixin {
   final TController? _streamableValue;
   final _ControllableCreate<TController>? _streamableCreator;
 

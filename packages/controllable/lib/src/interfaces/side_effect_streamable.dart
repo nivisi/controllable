@@ -1,3 +1,3 @@
-abstract class SideEffectStreamable<TEffect> {
-  Stream<TEffect> get effectStream;
+abstract class SideEffectStreamable {
+  Stream<dynamic> get effectStream;
 }

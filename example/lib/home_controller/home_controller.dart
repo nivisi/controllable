@@ -5,7 +5,7 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 @XControllable<HomeEvent>()
-class HomeController extends XController<HomeState, int> with _$HomeController {
+class HomeController extends XController<HomeState> with _$HomeController {
   @override
   HomeState createInitialState() {
     return createHomeState(name: 'something');

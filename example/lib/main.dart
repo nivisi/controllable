@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (context) {
         return XListener(
           streamable: context.homeController,
-          listener: (context, int effect) {
+          listener: (context, effect) {
             print('Home: $effect');
           },
           child: Scaffold(
