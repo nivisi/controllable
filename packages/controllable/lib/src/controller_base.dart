@@ -1,10 +1,9 @@
 import 'dart:async';
 
+import 'package:interfaces/interfaces.dart';
 import 'package:meta/meta.dart';
 
-import 'interfaces/disposable.dart';
 import 'interfaces/side_effect_streamable.dart';
-import 'interfaces/state_streamable.dart';
 
 abstract class XController<TState extends XState, TEffect>
     implements
