@@ -5,20 +5,17 @@ import 'package:meta/meta.dart';
 
 import 'interfaces/side_effect_streamable.dart';
 
-abstract class XController<TState extends XState, TEffect>
-    implements
-        SideEffectStreamable<TEffect>,
-        StateStreamable<TState>,
-        Disposable {
+abstract class XController<TState extends XState>
+    implements SideEffectStreamable, StateStreamable<TState>, Disposable {
   late TState _state = createInitialState();
 
   final _stateStreamController = StreamController<TState>.broadcast();
-  final _effectStreamController = StreamController<TEffect>.broadcast();
+  final _effectStreamController = StreamController.broadcast();
 
   bool _isProvided = false;
 
   @override
-  Stream<TEffect> get effectStream => _effectStreamController.stream;
+  Stream get effectStream => _effectStreamController.stream;
 
   @override
   Stream<TState> get stateStream => _stateStreamController.stream;
@@ -114,7 +111,7 @@ abstract class XController<TState extends XState, TEffect>
   /// ```
   @protected
   @nonVirtual
-  void fireEffect(TEffect effect) {
+  void fireEffect(effect) {
     _effectStreamController.add(effect);
   }
 

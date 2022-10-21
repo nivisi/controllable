@@ -82,17 +82,15 @@ class BuildContextExtensionGeneratorHelper {
         .withType(controllerStateBuildContextName)
         .returns('_state;');
 
-    final effectName = sideEffect.name;
-
     final sideEffectStreamGetter = DartCodeWriter.createGetter
         .withName('effectStream')
-        .withType('Stream<$effectName>')
+        .withType('Stream')
         .overriding
         .returns('_controller.effectStream');
 
     final controllerBuildContext = DartCodeWriter.createClass
         .withName(controllerBuildContextName)
-        .implements('SideEffectStreamable<$effectName>')
+        .implements('SideEffectStreamable')
         .withField(controllerField)
         .withField(stateContextName)
         .withGetter(raiseEventGetter)
