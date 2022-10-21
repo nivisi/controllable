@@ -9,6 +9,6 @@ issue_tracker: https://github.com/nivisi/controllable/labels/controllable
 
 dependencies:
   meta: ^1.0.0
-  interfaces: 0.0.4
+  interfaces: ^0.0.4
 dev_dependencies:
   lints: ^1.0.0
