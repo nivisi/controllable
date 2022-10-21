@@ -67,7 +67,7 @@ For more details, see below.
 
 ### Setup
 
-Add packages to pubspec.yaml:
+Add packages to __pubspec.yaml__:
 
 ```
 dependencies:
@@ -78,7 +78,7 @@ dev_dependencies:
   controllable_generator:
 ```
 
-At first, declare your `State` and `Event` classes. And, optionally, a side effect class. For simplicity we'll use an `int` as a side effect.
+At first, declare your `State` and `Event` classes. For simplicity we'll use an `int` as a side effect, but in fact it can be any class or even an enum.
 
 #### State
 
@@ -116,7 +116,7 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 @XControllable<HomeEvent>()
-class HomeController extends XController<HomeState, int> with _$HomeController {
+class HomeController extends XController<HomeState> with _$HomeController {
   @override
   HomeState createInitialState() {
     // We will fill it later on.
@@ -139,7 +139,7 @@ A file with settings and extensions for your controller was generated. You can n
 
 ```dart
 @XControllable<HomeEvent>()
-class HomeController extends XController<HomeState, int> with _$HomeController {
+class HomeController extends XController<HomeState> with _$HomeController {
   @override
   HomeState createInitialState() {
     // Use the method below to create the initial state of your controller.
@@ -164,7 +164,9 @@ class HomeController extends XController<HomeState, int> with _$HomeController {
 
   @override
   void onUpdateCounter(int counter) {
-    // Use fireEffect to make the UI react on it navigating to another page, showing a snackbar etc
+    // Use fireEffect to fire an effect that the UI layer can catch
+    // Using XListener widget.
+    // It then can navigate to another page, show a toast etc
     fireEffect(counter);
   }
 }
@@ -184,13 +186,15 @@ return XProvider(
 In `HomeBody`, access the fields:
 
 ```dart
+final controller = context.homeController;
+
 return Column(
   children: [
-    Text(context.homeController.state.watch.name),
-    Text(context.homeController.state.watch.address),
+    Text(controller.state.watch.name),
+    Text(controller.state.watch.address),
     TextButton(
       // The onUpdateName method of the controller will be called here.
-      onPressed: () => context.homeController.raiseEvent.updateName('New Name'),
+      onPressed: () => controller.raiseEvent.updateName('New Name'),
       child: Text('Set name to "New Name"'),
     ),
   ],
@@ -247,16 +251,27 @@ To make the controller to perform certain business logic, on the UI level do `co
 
 Side effects are needed to perform UI actions. Navigation to another screen, showing a dialog or a toast, validating a form field ect. — this is what side effects are for.
 
+In your controller, do:
+
+```dart
+  fireEffect(data);
+```
+
 ### Listen for side effects
 
-Remember that side effect of type `int` of `HomeController`? Use the `XListener` widget to listen for it!
+Use the `XListener` widget to listen for it side effects that are fired by your controllers.
 
 ```dart
 XListener(
   streamable: context.homeController,
-  listener: (context, int effect) {
+  listener: (context, effect) {
     // Do whatever is required on the UI level.
     print(effect); // or just print the effect...
+
+    // To check for certain types of effects, you can do:
+    if (effect is MyEffect) {
+      // Do sth with MyEffect
+    }
   },
   child: const SomeWidget(),
 );
@@ -270,7 +285,7 @@ They are yet to determine! :) But the first one is:
 
 Access the state and the events only via the `context.controller.state` / `context.controller.raiseEvent`. Still, you can get your controller via the `Provider`'s `context.read<YourController>()` or other methods. But it is recommended to use only the `BuildContext` extensions for that.
 
-On your UI level the interface of your controller has only three fields: `state`, `raiseEvent` and `effectSteam`. Though the latter is only for `XListener` widgets. So use:
+On your UI level the interface of your controller has only three fields: `state`, `raiseEvent` and `effectStream`. Though the latter is only for `XListener` widgets. So use:
 - `state` for reading/watching values and rendering the UI;
 - `raiseEvent` for triggering actions in the controller.
 
