@@ -1,3 +1,7 @@
+## 0.0.8
+
+Don't specify effect types as of controllable 0.0.4.
+
 ## 0.0.7
 
 Call `onProvided` in the generated mixin.
