@@ -117,7 +117,7 @@ abstract class XController<TState extends XState>
 
   @override
   @mustCallSuper
-  Future<void> dispose() async {
+  void dispose() {
     if (isDisposed) {
       return;
     }
