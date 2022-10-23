@@ -7,3 +7,4 @@ library controllable;
 export 'src/annotations/x_controllable.dart';
 export 'src/controller_base.dart';
 export 'src/interfaces/side_effect_streamable.dart';
+export 'src/mixin/controllable_subscriptions.dart';

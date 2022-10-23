@@ -1,8 +1,18 @@
+## 0.0.5
+
+__BREAKING:__
+- The return type of the `dispose` method is now void.
+
+__Features:__
+- Introduced a new `ControllableSubscriptions mixin`.
+
 ## 0.0.4
 
-- __BREAKING:__ side effect no longer has type specified;
-- Migrated to use [interfaces library](https://pub.dev/packages/interfaces).
+__BREAKING:__
+- Side effect no longer has type specified;
 
+__Refactor:__
+- Migrate to use [interfaces library](https://pub.dev/packages/interfaces).
 
 ## 0.0.3
 
