@@ -1,6 +1,6 @@
 name: controllable_flutter
 description: The Flutter part of the controllable ecosystem that contains widgets to operate with the controllable on the UI level.
-version: 0.0.5
+version: 0.0.5+1
 homepage: https://github.com/nivisi/controllable/tree/develop/packages/controllable_flutter
 repository: https://github.com/nivisi/controllable/tree/develop/packages/controllable_flutter
 issue_tracker: https://github.com/nivisi/controllable/labels/controllable_flutter
@@ -10,7 +10,7 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  controllable: ^0.0.4
+  controllable: ^0.0.5
   flutter:
     sdk: flutter
   provider: ^6.0.2
