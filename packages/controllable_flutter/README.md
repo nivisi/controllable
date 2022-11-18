@@ -2,7 +2,9 @@
 
 Easy and convenient state management. Set your business logic apart from the UI level.
 
-> **Warning** This is an alpha version. The documentation is not finished and will be extended and updated later on.
+> **Warning**
+> 
+> This is an alpha version. The documentation is not finished and will be extended and updated later on.
 
 ## Quick overview
 
